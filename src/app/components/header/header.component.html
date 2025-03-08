@@ -1,27 +1,85 @@
-<header class="bg-white shadow-sm">
-    <div class="container mx-auto px-4 py-2">
-      <div class="flex justify-between items-center py-2">
-        <div class="search">
-          <span class="text-gray-600">Search</span>
-        </div>
-        <div class="logo text-center">
-          <h1 class="text-2xl font-bold uppercase">Jewelry</h1>
-        </div>
-        <div class="account-cart flex space-x-4">
-          <span class="text-gray-600">Account</span>
-          <span class="text-gray-600">Cart(0)</span>
-        </div>
-      </div>
-      
-      <nav class="py-2 border-t border-b border-gray-200">
-        <ul class="flex justify-center space-x-8 text-sm uppercase overflow-x-auto md:overflow-visible">
-          <li><a href="#" class="hover:text-pink-500 whitespace-nowrap">Charms & Bracelets</a></li>
-          <li><a href="#" class="hover:text-pink-500 whitespace-nowrap">Rings</a></li>
-          <li><a href="#" class="hover:text-pink-500 whitespace-nowrap">Necklaces & Pendants</a></li>
-          <li><a href="#" class="hover:text-pink-500 whitespace-nowrap">Earrings</a></li>
-          <li><a href="#" class="hover:text-pink-500 whitespace-nowrap">Gifts</a></li>
-          <li><a href="#" class="hover:text-pink-500 whitespace-nowrap">Collections</a></li>
-        </ul>
-      </nav>
+<header class="w-full bg-white shadow-sm">
+  <!-- Top navigation bar -->
+  <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+    <!-- Mobile menu button -->
+    <button 
+      class="lg:hidden flex items-center" 
+      (click)="toggleMenu()"
+    >
+      @if (isMenuOpen) {
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      } @else {
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+      }
+    </button>
+
+    <!-- Search on desktop (left side) -->
+    <div class="lg:flex items-center border border-gray-300 rounded-full px-3 py-1 hidden sm:flex md:w-64 lg:w-80">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search text-gray-500"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <input
+        type="text"
+        placeholder="Search"
+        class="ml-2 outline-none w-full"
+      />
     </div>
-  </header>
+
+    <!-- Logo -->
+    <div class="flex items-center justify-center flex-grow lg:flex-grow-0">
+      <h1 class="text-2xl font-bold tracking-widest text-center">PANDORA</h1>
+    </div>
+
+    <!-- Right side icons -->
+    <div class="flex items-center space-x-4">
+      <!-- Account button - now visible at all screen sizes -->
+      <button class="flex items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span class="hidden lg:inline ml-1">Account</span>
+      </button>
+      <!-- Cart button -->
+      <button class="flex items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-bag"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <span class="hidden lg:inline ml-1">Cart(0)</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Search bar on mobile - full width -->
+  <div class="px-4 py-2 sm:hidden">
+    <div class="flex items-center border border-gray-300 rounded-full px-3 py-1">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search text-gray-500"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <input
+        type="text"
+        placeholder="Search"
+        class="ml-2 outline-none w-full"
+      />
+    </div>
+  </div>
+
+  <!-- Desktop Navigation Menu -->
+  <nav class="hidden lg:block border-t border-gray-200">
+    <div class="container mx-auto">
+      <ul class="flex justify-between items-center py-3 px-4 text-sm font-medium">
+        @for (item of menuItems; track $index) {
+          <li class="hover:text-gray-500 cursor-pointer">
+            {{ item }}
+          </li>
+        }
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Mobile Navigation Menu -->
+  @if (isMenuOpen) {
+    <nav class="lg:hidden border-t border-gray-200">
+      <div class="container mx-auto">
+        <ul class="flex flex-col py-3 px-4 text-sm font-medium">
+          @for (item of menuItems; track $index) {
+            <li class="py-2 hover:text-gray-500 cursor-pointer">
+              {{ item }}
+            </li>
+          }
+        </ul>
+      </div>
+    </nav>
+  }
+</header>
