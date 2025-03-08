@@ -1,0 +1,53 @@
+<footer class="bg-white py-8 border-t border-gray-200">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div>
+          <h3 class="font-semibold mb-4 uppercase">Shop</h3>
+          <ul class="text-sm">
+            @for (link of shopLinks; track link) {
+              <li class="mb-2">
+                <a href="#" class="text-gray-600 hover:text-pink-500">{{link}}</a>
+              </li>
+            }
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="font-semibold mb-4 uppercase">Customer Service</h3>
+          <ul class="text-sm">
+            @for (link of customerServiceLinks; track link) {
+              <li class="mb-2">
+                <a href="#" class="text-gray-600 hover:text-pink-500">{{link}}</a>
+              </li>
+            }
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="font-semibold mb-4 uppercase">Help</h3>
+          <ul class="text-sm">
+            @for (link of helpLinks; track link) {
+              <li class="mb-2">
+                <a href="#" class="text-gray-600 hover:text-pink-500">{{link}}</a>
+              </li>
+            }
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="font-semibold mb-4 uppercase">About</h3>
+          <ul class="text-sm">
+            @for (link of socialLinks; track link) {
+              <li class="mb-2">
+                <a href="#" class="text-gray-600 hover:text-pink-500">{{link}}</a>
+              </li>
+            }
+          </ul>
+        </div>
+      </div>
+      
+      <div class="mt-8 pt-6 border-t border-gray-200 text-center text-xs text-gray-600">
+        <p>© 2025 SOUL. ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+</footer>

@@ -1,0 +1,54 @@
+/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* src/styles.css - Add these after the Tailwind directives */
+
+/* Custom styles to match Pandora's design */
+.logo h1 {
+    letter-spacing: 1px;
+  }
+  
+  nav ul li a {
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+    transition: color 0.2s ease;
+  }
+  
+  h1, h2, h3, h4 {
+    letter-spacing: 0.5px;
+  }
+  
+  .category-item {
+    transition: transform 0.2s ease;
+  }
+  
+  .category-item:hover {
+    transform: translateY(-2px);
+  }
+  
+  button.shop-now {
+    transition: all 0.2s ease;
+    font-size: 0.7rem;
+    letter-spacing: 0.5px;
+  }
+  
+  /* Custom pagination dots */
+  .pagination-dot {
+    transition: background-color 0.2s ease;
+  }
+  
+  /* Product card hover effect */
+  .product-card {
+    transition: all 0.2s ease;
+  }
+  
+  .product-card:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Custom pink gradient for some backgrounds */
+  .pink-gradient {
+    background: linear-gradient(135deg, #fce7ef 0%, #f9cede 100%);
+}

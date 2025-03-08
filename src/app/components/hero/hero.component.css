@@ -1,0 +1,47 @@
+/* hero.component.css */
+@media (max-width: 360px) {
+    /* Extra small screens adjustments */
+    :host {
+      font-size: 14px;
+    }
+  }
+  
+  /* Add custom breakpoint for extra small devices */
+  @media screen and (min-width: 475px) {
+    .xs\:flex-row {
+      flex-direction: row;
+    }
+    .xs\:space-y-0 {
+      margin-top: 0;
+    }
+    .xs\:space-x-4 > * + * {
+      margin-left: 1rem;
+    }
+    .xs\:mr-2 {
+      margin-right: 0.5rem;
+    }
+    .xs\:mt-0 {
+      margin-top: 0;
+    }
+    .xs\:w-auto {
+      width: auto;
+    }
+    .xs\:inline {
+      display: inline;
+    }
+  }
+  
+  /* Fix for larger devices to ensure full height */
+  @media screen and (min-height: 800px) {
+    section {
+      height: 100vh;
+    }
+  }
+  
+  /* Ensure the content doesn't overflow on very small screens */
+  @media screen and (max-height: 500px) {
+    section {
+      min-height: 500px;
+      height: auto;
+    }
+}
