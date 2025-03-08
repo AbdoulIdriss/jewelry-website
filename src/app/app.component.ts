@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HeaderComponent } from './components/header/header.component';
 import { HeroComponent } from './components/hero/hero.component';
 import { CollectionComponent } from './components/collection/collection.component';
@@ -15,6 +15,7 @@ import { FooterComponent } from './components/footer/footer.component';
 @Component({
   selector: 'app-root',
   imports: [
+    FontAwesomeModule,
     HeaderComponent,
     HeroComponent,
     CollectionComponent,
